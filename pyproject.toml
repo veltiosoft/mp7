@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "mp7"
+version = "0.1.0"
+description = "a discord bot"
+authors = ["zztkm <takumi.basket1682@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+discord-py = {extras = ["voice"], version = "^2.1.0"}
+
+
+[tool.poetry.group.dev.dependencies]
+tox = "^4.1.2"
+pre-commit = "^2.21.0"
+pytest-cov = "^4.0.0"
+pytest = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
