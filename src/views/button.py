@@ -2,7 +2,6 @@ import discord
 
 
 class LinkButton(discord.ui.View):
-
     def __init__(self, label_text: str, url: str):
         super().__init__()
         self.add_item(
@@ -12,4 +11,3 @@ class LinkButton(discord.ui.View):
                 style=discord.ButtonStyle.link,
             )
         )
-

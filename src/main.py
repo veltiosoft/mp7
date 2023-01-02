@@ -1,10 +1,9 @@
-import os
-import logging
 import asyncio
+import logging
+import os
 
 import discord
 from discord.ext import commands
-
 
 logging.basicConfig(level=logging.INFO)
 
@@ -23,4 +22,3 @@ async def main():
 
 
 asyncio.run(main())
-

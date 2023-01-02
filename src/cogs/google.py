@@ -1,7 +1,6 @@
 import logging
 from urllib.parse import quote_plus
 
-import discord
 from discord.ext import commands
 
 from views.button import LinkButton
@@ -16,10 +15,9 @@ class Google(commands.Cog):
     @commands.command()
     async def google(self, ctx: commands.Context, *, query: str):
         logger.info(ctx.args)
-        url = f'https://www.google.com/search?q={quote_plus(query)}'
+        url = f"https://www.google.com/search?q={quote_plus(query)}"
         await ctx.send(view=LinkButton("Go to top on this channe", url))
 
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Google(bot))
-
