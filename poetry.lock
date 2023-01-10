@@ -1,4 +1,12 @@
 [[package]]
+name = "aiofiles"
+version = "22.1.0"
+description = "File support for asyncio."
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[[package]]
 name = "aiohttp"
 version = "3.8.3"
 description = "Async http client/server framework (asyncio)"
@@ -372,6 +380,14 @@ docs = ["furo (>=2022.12.7)", "sphinx (>=6)", "sphinx-argparse-cli (>=1.10)", "s
 testing = ["build[virtualenv] (>=0.9)", "covdefaults (>=2.2.2)", "devpi-process (>=0.3)", "diff-cover (>=7.3)", "distlib (>=0.3.6)", "flaky (>=3.7)", "hatch-vcs (>=0.3)", "hatchling (>=1.12)", "psutil (>=5.9.4)", "pytest (>=7.2)", "pytest-cov (>=4)", "pytest-mock (>=3.10)", "pytest-xdist (>=3.1)", "re-assert (>=1.1)", "time-machine (>=2.8.2)"]
 
 [[package]]
+name = "types-aiofiles"
+version = "22.1.0.4"
+description = "Typing stubs for aiofiles"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "virtualenv"
 version = "20.17.1"
 description = "Virtual Python Environment builder"
@@ -403,9 +419,13 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.11"
-content-hash = "3699c5430443a5367c98afca7b833c8f85868877ec9d8018b11e5a798d1a0c51"
+content-hash = "4208ffa07c15e31cdf45efbc067ac8337300e17ca5710b7ef12340888fc1166d"
 
 [metadata.files]
+aiofiles = [
+    {file = "aiofiles-22.1.0-py3-none-any.whl", hash = "sha256:1142fa8e80dbae46bb6339573ad4c8c0841358f79c6eb50a493dceca14621bad"},
+    {file = "aiofiles-22.1.0.tar.gz", hash = "sha256:9107f1ca0b2a5553987a94a3c9959fe5b491fdf731389aa5b7b1bd0733e32de6"},
+]
 aiohttp = [
     {file = "aiohttp-3.8.3-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:ba71c9b4dcbb16212f334126cc3d8beb6af377f6703d9dc2d9fb3874fd667ee9"},
     {file = "aiohttp-3.8.3-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:d24b8bb40d5c61ef2d9b6a8f4528c2f17f1c5d2d31fed62ec860f6006142e83e"},
@@ -919,6 +939,10 @@ setuptools = [
 tox = [
     {file = "tox-4.1.2-py3-none-any.whl", hash = "sha256:aa1c07530f07265d025d534715f5e8d522606db71568cf6acbf7eadc30a8d0ed"},
     {file = "tox-4.1.2.tar.gz", hash = "sha256:3910e7ddf260de9004738a416f2efdbca21ad7f35d279f8a323117256696535f"},
+]
+types-aiofiles = [
+    {file = "types-aiofiles-22.1.0.4.tar.gz", hash = "sha256:54465417fdfafc723e6f0fca66de5498866f1cf2595b72c9da35c96d1c3e9fce"},
+    {file = "types_aiofiles-22.1.0.4-py3-none-any.whl", hash = "sha256:3c3d389ceec04c78bd33d13304332dcc46856a418d7d4ebf95e398f1efa3a3b7"},
 ]
 virtualenv = [
     {file = "virtualenv-20.17.1-py3-none-any.whl", hash = "sha256:ce3b1684d6e1a20a3e5ed36795a97dfc6af29bc3970ca8dab93e11ac6094b3c4"},
