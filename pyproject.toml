@@ -9,6 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 discord-py = {extras = ["voice"], version = "^2.1.0"}
+aiofiles = "^22.1.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -16,6 +17,7 @@ tox = "^4.1.2"
 pre-commit = "^2.21.0"
 pytest-cov = "^4.0.0"
 pytest = "^7.2.0"
+types-aiofiles = "^22.1.0.4"
 
 [build-system]
 requires = ["poetry-core"]

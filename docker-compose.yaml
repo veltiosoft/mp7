@@ -5,3 +5,5 @@ services:
     restart: always
     environment:
       - DISCORD_BOT_TOKEN
+    volumes:
+      - ./data:/data
