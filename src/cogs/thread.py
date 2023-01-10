@@ -35,27 +35,18 @@ class ManageThread(commands.Cog):
         logger.info(ctx.message)
         valid_res = self.valid(ctx)
         if not valid_res.ok:
+            # 無効だった場合はここで処理を終了する
             await ctx.send(f"{valid_res.message}")
             return
 
         ch: discord.Thread = ctx.channel
-        logger.info(f"約 {ch.message_count} 件のメッセージがあります")
-        await ctx.send(f"約 {ch.message_count} 件のメッセージがあります")
+        await ctx.send(f"約 {ch.message_count} 件のメッセージを出力します")
 
         # TODO: メッセージの形式を csv とか選べるようにする
         try:
             file_name = f"{ch.name}_{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}.json"
-            async with aiofiles.open(file_name, encoding="utf-8", mode="w") as f:
-                res = []
-                async for msg in ch.history(oldest_first=True):
-                    res.append(
-                        asdict(ExportMessage(msg.id, msg.author.id, msg.author.name, msg.content, msg.created_at.isoformat()))
-                    )
-
-                await f.write(json.dumps(res, indent=2, ensure_ascii=False))
-
+            await self._export(file_name, ctx.channel)
             await ctx.send("エクスポートが完了しました", file=discord.File(fp=file_name))
-            # 完了したらファイルを削除する
             await remove(file_name)
         except discord.Forbidden as e:
             msg = "メッセージ履歴を読み取る権限がありません!"
@@ -75,6 +66,19 @@ class ManageThread(commands.Cog):
             return ValidResult(False, "public thread でのみ実行できるコマンドです")
 
         return ValidResult(True, "")
+
+    async def _export(self, file_name: str, ch: discord.Thread):
+        async with aiofiles.open(file_name, encoding="utf-8", mode="w") as f:
+            res = []
+            async for msg in ch.history(oldest_first=True):
+                if msg.author.bot:
+                    # メッセージがBOTからの場合はスキップ
+                    continue
+                res.append(
+                    asdict(ExportMessage(msg.id, msg.author.id, msg.author.name, msg.content, msg.created_at.isoformat()))
+                )
+
+            await f.write(json.dumps(res, indent=2, ensure_ascii=False))
 
 
 async def setup(bot: commands.Bot):
