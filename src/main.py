@@ -17,6 +17,7 @@ async def main():
     async with bot:
         await bot.load_extension("cogs.text_channel")
         await bot.load_extension("cogs.google")
+        await bot.load_extension("cogs.thread")
 
         await bot.start(os.environ["DISCORD_BOT_TOKEN"])
 
